@@ -1,6 +1,5 @@
 from Tile import Tile
 
-
 class Board:
     def __init__(self):
         self.tiles=[[Tile for _ in range(3)]for _ in range(3)]
@@ -27,3 +26,48 @@ class Board:
                 print(" | ", end="")  
         if i != 2:
             print("--------------")  
+
+    def CheckWinner(self):
+        if (self.tiles[0][0]).Check_Mark():
+            markedtile = (self.tiles[0][0]).Print()
+            if ((self.tiles[0][1]).Print()) == markedtile:
+                if ((self.tiles[0][2]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True
+            elif ((self.tiles[1][1]).Print()) == markedtile:
+                if ((self.tiles[2][2]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True      
+            elif ((self.tiles[1][0]).Print()) == markedtile:
+                if ((self.tiles[2][0]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True
+        if (self.tiles[0][1]).Check_Mark():
+             markedtile = (self.tiles[0][1]).Print()
+             if ((self.tiles[1][1]).Print()) == markedtile:
+                if ((self.tiles[2][1]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True
+        if (self.tiles[0][2]).Check_Mark():
+            markedtile = (self.tiles[0][2]).Print()
+            if ((self.tiles[1][2]).Print()) == markedtile:
+                if ((self.tiles[2][2]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True
+            elif ((self.tiles[1][1]).Print()) == markedtile:
+                if ((self.tiles[2][0]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True   
+        if (self.tiles[1][0]).Check_Mark():
+            markedtile = (self.tiles[1][0]).Print()
+            if ((self.tiles[1][1]).Print()) == markedtile:
+                if ((self.tiles[1][2]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True
+        if (self.tiles[2][0]).Check_Mark():
+            markedtile = (self.tiles[2][0]).Print()
+            if ((self.tiles[2][1]).Print()) == markedtile:
+                if ((self.tiles[2][2]).Print()) == markedtile:
+                    print("Winner is ", markedtile)
+                    return True
+        return False

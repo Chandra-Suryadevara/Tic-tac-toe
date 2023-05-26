@@ -19,4 +19,13 @@ class Tile:
          self.Marked = False
 
      def Print(self):
-          return self.Mark
+         if self.Marked:
+           return self.Mark
+         else:
+             return 0
+
+     def Check_Mark(self):
+         if self.Marked:
+             return True
+         else:
+             return False
